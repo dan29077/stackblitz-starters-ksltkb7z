@@ -3,7 +3,7 @@
 //     Objetivo do exemplo: demonstrar a utilização dos conceitos de visibilidade de atributos e métodos
 //     e objetivos do encapsulamento
 // 02:
-const Aluno = require('.objetos/escolas/Aluno');
+const Aluno = require('./Aluno');
 // 03:
 const joao = new Aluno();
 // 04:

@@ -4,33 +4,32 @@
 //     e objetivos do encapsulamento
 // 02:
 class Aluno {
-    // 03:
-    #matricula; // atributo privado
-    // 04:
-    #curso;     // atributo privado
-    // 05:
-    escola;     // atributo público
-    // 06:
-    setMatricula(matricula) {
-      // 07:
-      this.#matricula = matricula;
-    }
-    // 08:
-    getMatricula() {
-      // 09:
-      return this.#matricula;
-    }
-    // 10:
-    setCurso(curso) {
-      // 11:
-      this.#curso = curso;
-    }
-    // 12:
-    getCurso() {
-      // 13:
-      return this.#curso;
-    }
+  // 03:
+  #matricula; // atributo privado
+  // 04:
+  #curso;     // atributo privado
+  // 05:
+  escola;     // atributo público
+  // 06:
+  setMatricula(matricula) {
+    // 07:
+    this.#matricula = matricula;
   }
-  // 14:
-  module.exports = Aluno;
-  
+  // 08:
+  getMatricula() {
+    // 09:
+    return this.#matricula;
+  }
+  // 10:
+  setCurso(curso) {
+    // 11:
+    this.#curso = curso;
+  }
+  // 12:
+  getCurso() {
+    // 13:
+    return this.#curso;
+  }
+}
+// 14:
+module.exports = Aluno;
