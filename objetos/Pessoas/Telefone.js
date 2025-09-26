@@ -1,23 +1,42 @@
-const Pessoa = require('./Pessoas');
+// cógido Telefone.js
+class Telefone{
+  #ddd;
+  #numero;
 
-class Telefone {
-    #ddd;
-    #numero;
-  
-    setTelefone(ddd, numero) {
-      if (ddd && numero) {
-        this.#ddd = ddd;
-        this.#numero = numero;
-        return true;
-      }
-      return false;
-    }
-  
-    getTelefone() {
-      return {
-        ddd: this.#ddd,
-        numero: this.#numero,
-      };
+  #pessoas = []
+  setPessoa(pessoa){
+    if(pessoa){
+         this.#pessoas.push(pessoa);
+         return true;
+    }else{
+        return false;
     }
   }
-  module.exports = Telefone;
+  getPessoas(){
+    return this.#pessoas;
+  }
+  //============================================
+  setDdd(ddd){
+    if(ddd){
+      this.#ddd = ddd;
+      return true;
+    }else{
+     return false;
+    }
+  }
+  getDdd(){
+    return this.#ddd;
+  }
+  setNumero(numero){
+   if(numero){
+     this.#numero = numero;
+     return true;
+   }else{
+    return false;
+   }
+ }
+ getNumero(){
+   return this.#numero;
+ }
+}
+module.exports = Telefone;

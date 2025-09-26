@@ -1,23 +1,44 @@
-const Pessoa = require('./Pessoas');
+//const Pessoa = require('./Pessoa');
 
-class Endereco {
+class Endereco{
     #logradouro;
     #cep;
-  
-    setEndereco(logradouro, cep) {
-      if (logradouro && cep ) {
-        this.#logradouro = logradouro;
+ 
+    #pessoas = []
+    setPessoa(pessoa){
+      if(pessoa){
+           this.#pessoas.push(pessoa);
+           return true;
+      }else{
+          return false;
+      }
+    }
+    getPessoas(){
+      return this.#pessoas;
+    }
+ 
+    //=====================================
+    setLogradouro(logradouro){
+       if(logradouro){
+         this.#logradouro = logradouro;
+         return true;
+       }else{
+         return false
+       }
+    }
+    getLogradouro(){
+      return this.#logradouro;
+    }
+    setCep(cep){
+      if(cep){
         this.#cep = cep;
         return true;
-      }
-      return false;
+      }else{
+        return false;
+      } 
     }
-  
-    getEndereco() {
-      return {
-        lograduro: this.#logradouro,
-        cep: this.#cep,
-      };
+    getCep(){
+      return this.#cep;
     }
-  }
-  module.exports = Endereco;
+ }
+ module.exports = Endereco;

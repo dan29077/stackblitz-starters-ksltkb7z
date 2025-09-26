@@ -1,62 +1,76 @@
-// 01: Arquivo criado em projeto no www.stackblitz.com denominado PJ.js (Pessoa Jurídica)
-//     Arquivo criado dentro de uma pasta /objetos/pessoas na raiz do projeto
-//     Objetivo do exemplo: demonstrar conceitos de Herança e sobrescrita de métodos,
-//     bem como encapsulamento adicionados de condicionais e operadores de comparação
-// 02:
+// Arquivo criado em projeto no www.stackblitz.com denominado PJ.js (Pessoa Juridica)
+// arquivo criado dentro de uma pasta /objetos/pessoas na raiz do projeto
+// Objetivo do exemplo : demonstrar conceitos de Herança e sobreescrita de mátodos, bem como encapsulamento adicionados de condicionais e operadores de comparaçao
+
 const Pessoa = require('./Pessoa');
-// 03:
-class PJ extends Pessoa {
-  // 04:
-  #cnpj;
-  // 05
-  setCNPJ(cnpj) {
-    /*
-      Operadores de comparação:
-      <   : menor que
-      >   : maior que
-      <=  : menor ou igual que
-      >=  : maior ou igual que
-    */    
-    // 06:
-    if (cnpj) {
-      // 07:
-      if (cnpj.length < 18) {
+const IE = require('./IE/IEclss');
+
+class PJ extends Pessoa{
+   
+    #cnpj;
+    setCNPJ(cnpj){
+      /*
+      Operador de Compara
+      < : menor que ??
+      > :  maior que ??
+      <= : menor ou igual que ??
+      >= : maior ou igual que ??
+      */
+      if(cnpj){
+        if(cnpj.length < 18) {
+         return false;
+        }
+        this.#cnpj = cnpj;
+        return true;
+      }else{
         return false;
       }
-      // 08:
-      this.#cnpj = cnpj;
-      return true;
-    } else {
-      // 09:
-      return false;
     }
-  }
-  // 10:
-  getCNPJ() {
-    return this.#cnpj;
-  }
-  // 11:
-  // sobrescrita do método setEmail
-  setEmail(email) {
-    /*
-      Operadores de comparação:
-      ==   : igualdade frouxa
-      ===  : igualdade estrita
-      !=   : diferença frouxa
-      !==  : diferença estrita
+    getCNPJ(){
+      return this.#cnpj;
+    }
+   // sobre escrita do método setEmail
+   setEmail(email) {
+    /* operador de comparacão
+        == : igualdade frouxa
+        === : igauldade estrita
+        != : diferença frouxa
+        !== : diferenca estrita
     */
-    // 12:
-    if (email !== '') {
-      // 13:
-      if (email.includes('@')) {
-        super.setEmail(email); // chama o método original da classe base
+    if(email !== ''){
+      if(email.includes('@')) {
+        super.setEmail(email);
         return true;
       }
-    } else {
-      // 14:
+    }else{
       return false;
     }
   }
+
+  #ie; 
+  setIE(ie){
+    if(ie instanceof IE){
+      this.#ie = ie;
+      ie.setPJ(this); // referencia cruzada
+      return true;
+    }else{
+      return false;
+    }
+ }
+ getIE(){
+   return this.#ie;
+ }
+
 }
-// 15:
 module.exports = PJ;
+
+/*
+Operadores de Comparação
+<	Menor que	Verifica se o valor da esquerda é menor que o da direita
+>	Maior que	Verifica se o valor da esquerda é maior que o da direita
+<=	Menor ou igual	Verifica se o valor da esquerda é menor ou igual ao da direita
+>=	Maior ou igual	Verifica se o valor da esquerda é maior ou igual ao da direita
+==	Igualdade frouxa (loose equality)	Compara valores após conversão de tipo, se necessário
+===	Igualdade estrita (strict equality)	Compara valores e tipos (sem conversão de tipo)
+!=	Diferença frouxa (loose inequality)	Compara se os valores são diferentes, com coerção de tipo
+*/
